@@ -1,0 +1,40 @@
+extends layout
+
+block head
+  link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+
+block defer
+  script(src="/js/main.js")
+
+block content
+  h1= title
+  
+  .row
+    form(class="col s12" method="POST" action="/novo")
+      .row
+        .input-field.col.s6
+          select.validate(id="city" name="city" required)
+            each city in cities
+              option(value="#{city._id}") #{city.name}
+          label(for="city") Cidade
+          
+      .row
+        .input-field.col.s6
+          input(type="text" id="title" name="title" required)
+          label(for="title") Título
+
+      .row
+        .input-field.col.s6
+          textarea.materialize-textarea(id="description" name="description" required)
+          label(for="description") Descrição
+          
+      .links
+        .row
+          .input-field.col.s6
+            input(type="text" name="link" required)
+            label Link
+            a.prefix.add-link(href="#")
+              i.material-icons add
+
+      .row
+        button(type="submit" class="btn waves-effect waves-light") Inserir

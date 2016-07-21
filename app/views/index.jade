@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  h1= title
+  p Temos o intuito de coletar informações sobre os candidatos a prefeito e vereadores das cidades do RS no ano de 2016.
+  p (apenas informações com fontes serão aceitas)
+  
+  a(href="/novo" class="waves-effect waves-light btn") Inserir candidato
+
+  table.bordered
+    thead
+      tr
+        th Título
+        th Descrição
+        th Evidências
+        th Status
+        th Criado
+    tbody
+      each info in information
+        tr
+          th #{info.title}
+          th #{info.description}
+          th
+            each link in info.links
+              a(href="#{link}") #{link}
+          th #{info.enable ? 'aceito' : 'aguardo'}
+          th #{moment(info.created).format('DD/MM/YYYY HH:MM')}
