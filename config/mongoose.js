@@ -1,6 +1,6 @@
 const mongoose = require( 'mongoose' );
 
-const dbURI = process.env.MONGO_ELEICOES_BRASIL || 'mongodb://localhost:27017/eleicoes-brasil';
+const dbURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/eleicoes-brasil';
 
 mongoose.Promise = global.Promise;
 
