@@ -11,7 +11,7 @@ const InformationSchema = new Schema({
       type: String,
       required: true
     },
-    links : [String],
+    links : [],
     created : {
       type: Date,
       default: Date.now
@@ -26,9 +26,5 @@ const InformationSchema = new Schema({
       default: false
     }
 });
-
-InformationSchema.path('links').validate(value => {
-  return !!value && !!value[0];
-}, 'Link is not empty')
 
 module.exports = mongoose.model('Information', InformationSchema)

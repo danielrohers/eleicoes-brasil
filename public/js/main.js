@@ -8,7 +8,7 @@
 
         var $row = $('<div/>', { class: 'row' });
         var $inputField = $('<div/>', { class: 'input-field col s6' });
-        var $input = $('<input/>', { type: 'text', name: 'link', placeholder: 'Link', required: true });
+        var $input = $('<input/>', { type: 'text', name: 'links', placeholder: 'Link', required: true });
 
         $inputField.append($input);
         $inputField.append(this);

@@ -23,7 +23,8 @@ module.exports = {
     let information = new Information();
     information.title = req.body.title;
     information.description = req.body.description;
-    information.links = req.body.links;
+    let links = req.body.links;
+    information.links = Array.isArray(links) ? links : [links];
     information.city = req.body.city;
     information
       .save()
